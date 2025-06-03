@@ -8,7 +8,6 @@ function ContactPage() {
       <Link href="/" className="text-xl text-blue-500 block mt-8">
         Back to Home Page
       </Link>
-
     </div>
   );
 }

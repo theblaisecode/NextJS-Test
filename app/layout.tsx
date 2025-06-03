@@ -30,10 +30,10 @@ export const metadata: Metadata = {
 export default function RootLayut({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <body>
+      <body className="max-w-3xl mx-auto py-10 bg-black text-amber-50">
         <Navbar />
 
-        <main className="max-w-3xl mx-auto py-10">{children}</main>
+        <main className="">{children}</main>
       </body>
     </html>
   );

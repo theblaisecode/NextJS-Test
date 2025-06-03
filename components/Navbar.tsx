@@ -1,53 +1,52 @@
 import Link from "next/link";
 
-type Navigation = {
+type NavMenu = {
   id: number;
-  href: string;
+  url: string;
   ariaLabel: string;
-  pageName: string;
+  title: string;
 };
 
-const navLinks: Navigation[] = [
+const navLinks: NavMenu[] = [
   {
     id: 1,
-    href: "/",
+    url: "/",
     ariaLabel: "Link to Home Page",
-    pageName: "Home",
+    title: "Home",
   },
   {
     id: 2,
-    href: "/counter",
+    url: "/counter",
     ariaLabel: "Link to Counter Page",
-    pageName: "Counter",
+    title: "Counter",
   },
   {
     id: 3,
-    href: "/tours",
+    url: "/tours",
     ariaLabel: "Link to Tours Page",
-    pageName: "Tours",
+    title: "Tours",
   },
   {
     id: 4,
-    href: "/actions",
+    url: "/actions",
     ariaLabel: "Link to Actions Page",
-    pageName: "Actions",
+    title: "Actions",
   },
 ];
 
 function Navbar() {
   return (
-    <nav className="max-w-3xl mx-auto py-4 flex gap-x-4 border-b-2">
-      {navLinks.map((items) => {
-        const { id, href, ariaLabel, pageName }: Navigation = items;
+    <div className="border-b-2 mb-6 py-4">
+      {navLinks.map((links) => {
+        const { id, url, ariaLabel, title }: NavMenu = links;
 
         return (
-          <Link key={id} href={href} aria-label={ariaLabel}>
-            {pageName}
+          <Link key={id} href={url} aria-label={ariaLabel} className="pr-5">
+            {title}
           </Link>
         );
       })}
-    </nav>
+    </div>
   );
 }
-
 export default Navbar;
