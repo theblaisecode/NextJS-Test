@@ -36,17 +36,19 @@ const navLinks: NavMenu[] = [
 
 function Navbar() {
   return (
-    <div className="border-b-2 mb-6 py-4">
-      {navLinks.map((links) => {
-        const { id, url, ariaLabel, title }: NavMenu = links;
+    <nav className="pt-6">
+      <div className="border-b-2 mb-6 py-4 max-w-3xl mx-auto">
+        {navLinks.map((links) => {
+          const { id, url, ariaLabel, title }: NavMenu = links;
 
-        return (
-          <Link key={id} href={url} aria-label={ariaLabel} className="pr-5">
-            {title}
-          </Link>
-        );
-      })}
-    </div>
+          return (
+            <Link key={id} href={url} aria-label={ariaLabel} className="pr-5">
+              {title}
+            </Link>
+          );
+        })}
+      </div>
+    </nav>
   );
 }
 export default Navbar;
