@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const url = "https://www.course-api.com/react-tours-project";
 
@@ -33,10 +34,13 @@ async function ToursPage() {
               key={id}
               href={`/tours/${id}`}
               className="bg-[#2b2a2a] max-w-sm rounded overflow-hidden shadow-lg hover:bg-blue-200">
-              <img
+              <Image
                 src={image}
                 alt={name}
+                width={100}
+                height={50}
                 className="w-full h-50 object-cover"
+                priority
               />
 
               <div className="px-5 py-4">
