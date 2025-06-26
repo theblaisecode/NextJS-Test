@@ -1,11 +1,5 @@
 import Link from "next/link";
-
-type NavMenu = {
-  id: number;
-  url: string;
-  ariaLabel: string;
-  title: string;
-};
+import { type NavMenu } from "../types/types";
 
 const navLinks: NavMenu[] = [
   {

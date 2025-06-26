@@ -1,12 +1,29 @@
 "use server";
+import { readFile, writeFile } from "fs/promises";
+import { type User } from "../types/types";
 
 export const createUser = async (formData: FormData) => {
-  // const firstName = formData.get("firstName") as string;
-  // const lastName = formData.get("lastName") as string;
-  // console.log({ firstName, lastName });
+  // const rawData = Object.fromEntries(formData);
+  // console.log(rawData);
 
   // OR
 
-  const rawData = Object.fromEntries(formData);
-  console.log(rawData);
+  const firstName = formData.get("firstName") as string;
+  const lastName = formData.get("lastName") as string;
+  console.log({ firstName, lastName });
+
+  const newUser: User = { firstName, lastName, id: Date.now().toString() };
+  await savesers(newUser);
+};
+
+export const fetchUsers = async (): Promise<User[]> => {
+  const result = await readFile("users.json", { encoding: "utf8" });
+  const users = result ? JSON.parse(result) : [];
+  return users;
+};
+
+const savesers = async (user: User) => {
+  const users = await fetchUsers();
+  users.push(user);
+  await writeFile("users.json", JSON.stringify(users));
 };

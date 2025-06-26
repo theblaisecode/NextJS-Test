@@ -1,15 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import { type Tour } from "../../types/types";
 
 const url = "https://www.course-api.com/react-tours-project";
-
-type Tour = {
-  id: string;
-  name: string;
-  info: string;
-  image: string;
-  price: string;
-};
 
 const fetchTours = async () => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
