@@ -34,14 +34,17 @@ async function ToursPage() {
               key={id}
               href={`/tours/${id}`}
               className="bg-[#2b2a2a] max-w-sm rounded overflow-hidden shadow-lg hover:bg-blue-200">
-              <Image
-                src={image}
-                alt={name}
-                width={100}
-                height={50}
-                className="w-full h-50 object-cover"
-                priority
-              />
+              <div className="relative h-48">
+                <Image
+                  src={image}
+                  alt={name}
+                  fill
+                  // width={100}
+                  // height={100}
+                  className="w-full object-cover"
+                  priority
+                />
+              </div>
 
               <div className="px-5 py-4">
                 <div className="flex">
